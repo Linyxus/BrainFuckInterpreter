@@ -1,4 +1,4 @@
-#include <c++/cstring>
+#include <cstring>
 #include "Run.h"
 
 Run::Run(char* cs, int size){
@@ -10,18 +10,19 @@ Run::~Run(){
 }
 
 void Run::Parser(char* cs, int size){
-	printf("the container size :%d\n\n", size);
-	data = new int[size];
-	memset(&data, 0, size);
+    printf("the container size :%d\n\n", size);
+    data = new int[size];
+	memset(data, 0, size);
 
-
-	int counter = {};
+    ptr = 0;
+	size_t counter = {};
 	int flag;
 //	while(counter < sizeof(cs)){
 //		printf("%c\n", cs[counter]);
 //        counter++;
 //	}
-	 while(counter < sizeof(cs)){
+    size_t len = strlen(cs);
+    while(counter < len){
 	 	switch(cs[counter]){
 	 		case '+':
 	 			data[ptr]++;

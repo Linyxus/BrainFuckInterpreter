@@ -35,10 +35,7 @@ void Controller::loadFile(char *dir){
 		code_segment = new char[length];
 		code_segment = buffer;
 
-		(string)buffer;
-		cs = buffer;
-
-		delete buffer;
+		cs = string(buffer);
 	}
 }
 
