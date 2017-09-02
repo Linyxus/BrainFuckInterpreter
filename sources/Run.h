@@ -15,9 +15,9 @@ public:
 	int ptr = {};
 	int *data;
 
-	Run(char* cs, int size);
+	Run(string cs, int size);
 	~Run();
-	void Parser(char* cs, int size);
+	void Parser(string cs, int size);
 };
 
 #endif // RUN_H

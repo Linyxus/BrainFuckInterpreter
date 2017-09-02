@@ -2,7 +2,7 @@
 // Created by linyxus on 8/28/17.
 //
 #define DEFAULT 1024
-#include "Parse.h"
+#include "sources/Parse.h"
 
 Parse::Parse(string data){
 	parse_size(data);

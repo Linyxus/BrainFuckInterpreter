@@ -1,7 +1,8 @@
 #include <cstring>
-#include "Run.h"
+#include <stack>
+#include "sources/Run.h"
 
-Run::Run(char* cs, int size){
+Run::Run(string cs, int size){
 	Parser(cs, size);
 }
 
@@ -9,19 +10,19 @@ Run::~Run(){
 
 }
 
-void Run::Parser(char* cs, int size){
+void Run::Parser(string cs, int size){
+    stack<int> flagStack = stack<int>();
     printf("the container size :%d\n\n", size);
     data = new int[size];
 	memset(data, 0, size);
 
     ptr = 0;
 	size_t counter = {};
-	int flag;
 //	while(counter < sizeof(cs)){
 //		printf("%c\n", cs[counter]);
 //        counter++;
 //	}
-    size_t len = strlen(cs);
+    size_t len = cs.length();
     while(counter < len){
 	 	switch(cs[counter]){
 	 		case '+':
@@ -60,13 +61,13 @@ void Run::Parser(char* cs, int size){
 	 					counter++;
 	 				}
 	 			}else{
-	 				flag = counter;
+	 				flagStack.push(counter);
 	 			}
 	 			break;
 
 	 		case ']':
 	 			if(data[ptr]){
-	 				counter = flag;
+                    counter = flagStack.top();
 	 			}
 	 			break;
 	 	}

@@ -19,13 +19,8 @@ using namespace std;
 class Controller{
 public:
     vector<int> err_code;
-    vector<int> warning_code;
-    list<string> err_info;
-    list<string> warning_info;
-    //vector<char> code_segment;
-    char* code_segment;
     int ArraySize;
-    string cs;
+    string code_segment;
 
     Controller(char* dir[]);
     ~Controller();
