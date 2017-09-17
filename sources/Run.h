@@ -12,7 +12,7 @@ public:
 	//cs: code_segment
 	//int ds_size; //data_segment size
 
-	int ptr = {};
+	int ptr;
 	int *data;
 
 	Run(string cs, int size);

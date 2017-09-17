@@ -17,7 +17,7 @@ void Run::Parser(string cs, int size){
 	memset(data, 0, size);
 
     ptr = 0;
-	size_t counter = {};
+	size_t counter = 0;
 //	while(counter < sizeof(cs)){
 //		printf("%c\n", cs[counter]);
 //        counter++;
@@ -57,8 +57,11 @@ void Run::Parser(string cs, int size){
 
 	 		case '[':
 	 			if(!data[ptr]){
-	 				while(cs[counter] != ']'){
+                    int need = 1;
+	 				while(need > 0){
 	 					counter++;
+	 					if (cs[counter] == ']') need--;
+	 					else if (cs[counter] == '[') need++;
 	 				}
 	 			}else{
 	 				flagStack.push(counter);
@@ -67,8 +70,9 @@ void Run::Parser(string cs, int size){
 
 	 		case ']':
 	 			if(data[ptr]){
-                    counter = flagStack.top();
+                    counter = flagStack.top() - 1;
 	 			}
+                flagStack.pop();
 	 			break;
 	 	}
 	 	counter++;
